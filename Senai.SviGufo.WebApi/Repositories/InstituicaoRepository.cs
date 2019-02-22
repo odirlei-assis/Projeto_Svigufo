@@ -12,7 +12,7 @@ namespace Senai.SviGufo.WebApi.Repositories
     public class InstituicaoRepository : IInstituicaoRepository
     {
 
-        private string StringConexao = "Data Source=.\\SqlExpress; initial catalog= SENAI_SVIGUFO_TARDE;user id=sa;password=132";
+        private string StringConexao = "Data Source=.\\SqlExpress; initial catalog= SENAI_SVIGUFO_TARDE_BACKEND; integrated security=true";
 
         /// <summary>
         /// Altera uma instituição
@@ -150,7 +150,7 @@ namespace Senai.SviGufo.WebApi.Repositories
                 using (SqlCommand cmd = new SqlCommand(QueryDeletar, con))
                 {
                     //Atribui os valores aos parametros das querys
-
+                    
                     cmd.Parameters.AddWithValue("@ID", id);
 
                     //Abre a conexão

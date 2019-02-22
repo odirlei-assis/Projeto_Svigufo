@@ -36,7 +36,7 @@ namespace Senai.SviGufo.WebApi.Controllers
         /// Retorna uma lista de tipos de eventos
         /// </summary>
         /// <returns>Lista de Eventos</returns>
-
+        
         [HttpGet]
         public IEnumerable<TipoEventoDomain> Get()
         {
@@ -55,7 +55,7 @@ namespace Senai.SviGufo.WebApi.Controllers
             TipoEventoDomain tipoEvento = tiposEventos.Find(x => x.Id == id);
 
             //Verifica se foi encontrado na lista o tipo de evento
-            if (tipoEvento == null)
+            if(tipoEvento == null)
             {
                 //retorna não encontrado
                 return NotFound();

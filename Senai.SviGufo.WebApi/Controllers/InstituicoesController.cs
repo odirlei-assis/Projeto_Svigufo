@@ -7,14 +7,14 @@ using Senai.SviGufo.WebApi.Repositories;
 namespace Senai.SviGufo.WebApi.Controllers
 {
     [Produces("application/json")] // Retorna formato Json
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] 
     [ApiController] //Implementa funcionalidades no Controller
     public class InstituicoesController : ControllerBase
     {
         //Declara a Interface que será utilizada
         private IInstituicaoRepository InstituicaoRepository { get; set; }
 
-
+        
         public InstituicoesController()
         {
             //Instância o Repositorio
@@ -26,6 +26,8 @@ namespace Senai.SviGufo.WebApi.Controllers
         /// </summary>
         /// <returns>Retorna uma Lista de Instituições</returns>
         [HttpGet]
+        // mas era para acontecer amanhã, johny
+        // pode johny, se vocÊ colocar uma vírgula, fica topson
         [Authorize(Roles = "ADMINISTRADOR")]
         public IActionResult Get()
         {
@@ -44,7 +46,7 @@ namespace Senai.SviGufo.WebApi.Controllers
             InstituicaoDomain instituicaoBuscada = InstituicaoRepository.BuscarPorId(id);
 
             //Verifica se retornou uma instituição
-            if (instituicaoBuscada == null)
+            if(instituicaoBuscada == null)
             {
                 //Caso não encontre retorna status 404
                 return NotFound();
@@ -63,7 +65,7 @@ namespace Senai.SviGufo.WebApi.Controllers
         public IActionResult Post(InstituicaoDomain instituicao)
         {
             try //tenta
-            {
+            { 
                 //Efetua o cadastro da instituição
                 InstituicaoRepository.Cadastrar(instituicao);
                 //Retorna status 200
@@ -87,7 +89,7 @@ namespace Senai.SviGufo.WebApi.Controllers
         {
             InstituicaoDomain instituicaoBuscada = InstituicaoRepository.BuscarPorId(id);
 
-            if (instituicaoBuscada == null)
+            if(instituicaoBuscada == null)
             {
                 return NotFound(
                         new
